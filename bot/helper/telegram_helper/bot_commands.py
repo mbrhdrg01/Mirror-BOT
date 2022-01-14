@@ -31,5 +31,5 @@ class _BotCommands:
         self.ExecHelpCommand = 'exechelp'
         self.TsHelpCommand = 'tshelp'
         self.GDTOTCommand = 'gdtot'
-
+        self.APPDRIVECommand = 'appdrive'
 BotCommands = _BotCommands()
