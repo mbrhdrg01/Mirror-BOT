@@ -42,28 +42,21 @@ class GDTOT:
                    }
 
       def check(self):
-
           """Check cookies and Ready it for work"""
-
           try:
-
               j = js.loads(js.dumps(self.COOKIES))['cookie'].replace('=',': ').replace(';',',')
               f = re.sub(r'([a-zA-Z_0-9.%]+)', r'"\1"', "{%s}" %j)
               c = js.loads(f)
-
               return c
           except Exception as e:
               print(e)
               return ""
 
       def parse(self, url):
-
           """Main function to get the URL"""
-
           if url == "":
               return
           if self.c == "":
-
               print("Please provide cookies")
               return
 
