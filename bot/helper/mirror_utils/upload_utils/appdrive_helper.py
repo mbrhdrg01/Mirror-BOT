@@ -8,26 +8,26 @@ import re
 import json as js
 from bs4 import BeautifulSoup as bt
 import random
-from bot import GDTOT_COOKIES
+from bot import APPDRIVE_COOKIES
 
 
 def cookie_checker():
-    """added support to use many GDtot cookies to Bypass limit"""
-    GDTOT_COOKIES_SET = set()
+    """added support to use many Appdrive cookies to Bypass limit"""
+    APPDRIVE_COOKIES_SET = set()
     try:
-        a_gdtot_cookies = GDTOT_COOKIES.split("||")
-        for cookie in a_gdtot_cookies:
-            GDTOT_COOKIES_SET.add(str(cookie))
-        GDTOT_COOKIES_LIST = list(GDTOT_COOKIES_SET)
-        return {"cookie": random.choice(GDTOT_COOKIES_LIST)}
+        a_appdrive_cookies = APPDRIVE_COOKIES.split("||")
+        for cookie in a_appdrive_cookies:
+            APPDRIVE_COOKIES_SET.add(str(cookie))
+        APPDRIVE_COOKIES_LIST = list(APPDRIVE_COOKIES_SET)
+        return {"cookie": random.choice(APPDRIVE_COOKIES_LIST)}
     except:
         return ""
 
-class GDTOT:
+class APPDRIVE:
       def __init__(self):
-          self.r = 'https://new.gdtot.top/'
+          self.r = 'https://appdrive.in/'
           self.COOKIES = cookie_checker()
-          self.c = GDTOT.check(self)
+          self.c = APPDRIVE.check(self)
           self.h = {
                    'upgrade-insecure-requests': '1',
                    'save-data': 'on',
