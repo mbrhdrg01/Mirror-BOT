@@ -24,15 +24,11 @@ def cookie_checker():
         return ""
 
 class GDTOT:
-
       def __init__(self):
-
           self.r = 'https://new.gdtot.top/'
           self.COOKIES = cookie_checker()
           self.c = GDTOT.check(self)
-
           self.h = {
-
                    'upgrade-insecure-requests': '1',
                    'save-data': 'on',
                    'user-agent': 'Mozilla/5.0 (Linux; Android 10; Redmi 8A Dual) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.101 Mobile Safari/537.36',
@@ -43,7 +39,6 @@ class GDTOT:
                    'referer': self.r,
                    'prefetchAd_3621940': 'true',
                    'accept-language': 'en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7'
-
                    }
 
       def check(self):
