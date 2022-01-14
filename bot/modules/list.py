@@ -54,7 +54,7 @@ def appdrive(update, context):
     try:
         search = update.message.text.split(' ', 1)[1]
         search_list = search.split(' ')
-        for alink in search_list:
+        for glink in search_list:
             LOGGER.info(f"Extracting appdrive link: {glink}")
             button = None
             reply = sendMessage('Getting Your APPDRIVE File Wait....', context.bot, update)
