@@ -50,7 +50,7 @@ def gdtot(update, context):
         LOGGER.info(e)
 
 
-def gdtot(update, context):
+def appdrive(update, context):
     try:
         search = update.message.text.split(' ', 1)[1]
         search_list = search.split(' ')
