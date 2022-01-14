@@ -49,6 +49,31 @@ def gdtot(update, context):
     except Exception as e:
         LOGGER.info(e)
 
+
+def gdtot(update, context):
+    try:
+        search = update.message.text.split(' ', 1)[1]
+        search_list = search.split(' ')
+        for glink in search_list:
+            LOGGER.info(f"Extracting gdtot link: {glink}")
+            button = None
+            reply = sendMessage('Getting Your GDTOT File Wait....', context.bot, update)
+            file_name, file_url = GDTOT().parse(url=glink)
+            if file_name == 404:
+                sendMessage(file_url, context.bot, update)
+                return
+            if file_url != 404:
+                gdrive = GoogleDriveHelper(None)
+                msg, button = gdrive.clone(file_url)
+            if button:
+                editMessage(msg, reply, button)
+            else:
+                editMessage(file_name, reply, button)
+    except IndexError:
+        sendMessage('Send cmd along with url', context.bot, update)
+    except Exception as e:
+        LOGGER.info(e)
+
 list_handler = CommandHandler(BotCommands.ListCommand, list_drive, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
 gdtot_handler = CommandHandler(BotCommands.GDTOTCommand, gdtot, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
 
