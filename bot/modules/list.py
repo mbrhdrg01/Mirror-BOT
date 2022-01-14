@@ -55,10 +55,10 @@ def appdrive(update, context):
         search = update.message.text.split(' ', 1)[1]
         search_list = search.split(' ')
         for alink in search_list:
-            LOGGER.info(f"Extracting appdrive link: {alink}")
+            LOGGER.info(f"Extracting appdrive link: {glink}")
             button = None
             reply = sendMessage('Getting Your APPDRIVE File Wait....', context.bot, update)
-            file_name, file_url = APPDRIVE().parse(url=alink)
+            file_name, file_url = APPDRIVE().parse(url=glink)
             if file_name == 404:
                 sendMessage(file_url, context.bot, update)
                 return
