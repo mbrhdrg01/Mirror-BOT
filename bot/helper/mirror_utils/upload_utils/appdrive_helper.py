@@ -59,11 +59,8 @@ class GDTOT:
           if self.c == "":
               print("Please provide cookies")
               return
-
           else:
-
              try:
-
                  r1 = rq.get(url, headers=self.h, cookies=self.c).content
                  p = bt(r1, 'html.parser').find('button', id="down").get('onclick').split("'")[1]
                  self.r = url
@@ -71,18 +68,13 @@ class GDTOT:
                  self.r = p
                  r3 = bt(rq.get(r2, headers=self.h, cookies=self.c).content, 'html.parser').find('div', align="center")
                  if r3 == None:
-
                     r3 = bt(rq.get(r2, headers=self.h, cookies=self.c).content, 'html.parser')
                     f = r3.find('h4').text
                     return 404, f
-
                  else:
-
                     s = r3.find('h6').text
                     i = r3.find('a', class_="btn btn-outline-light btn-user font-weight-bold").get('href')
                     return s,i
-
              except Exception as e:
-
                  print(e)
                  return 404, 404
