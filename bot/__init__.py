@@ -400,6 +400,12 @@ except KeyError:
     GDTOT_COOKIES = None
 
 try:
+    APPDRIVE_COOKIES = getConfig('APPDRIVE_COOKIES')
+except KeyError:
+    logging.warning('APPDRIVE_COOKIES not provided!')
+    APPDRIVE_COOKIES = None
+
+try:
     ACCOUNTS_ZIP_URL = getConfig('ACCOUNTS_ZIP_URL')
     if len(ACCOUNTS_ZIP_URL) == 0:
         ACCOUNTS_ZIP_URL = None
