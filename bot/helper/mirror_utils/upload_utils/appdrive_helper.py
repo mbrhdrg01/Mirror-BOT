@@ -12,23 +12,15 @@ from bot import GDTOT_COOKIES
 
 
 def cookie_checker():
-
     """added support to use many GDtot cookies to Bypass limit"""
-
     GDTOT_COOKIES_SET = set()
-
     try:
-
         a_gdtot_cookies = GDTOT_COOKIES.split("||")
-
         for cookie in a_gdtot_cookies:
-
             GDTOT_COOKIES_SET.add(str(cookie))
         GDTOT_COOKIES_LIST = list(GDTOT_COOKIES_SET)
         return {"cookie": random.choice(GDTOT_COOKIES_LIST)}
-
     except:
-
         return ""
 
 class GDTOT:
