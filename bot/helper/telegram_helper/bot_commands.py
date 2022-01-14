@@ -32,4 +32,5 @@ class _BotCommands:
         self.TsHelpCommand = 'tshelp'
         self.GDTOTCommand = 'gdtot'
         self.APPDRIVECommand = 'appdrive'
+        
 BotCommands = _BotCommands()
