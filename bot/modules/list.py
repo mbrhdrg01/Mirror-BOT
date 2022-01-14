@@ -54,11 +54,11 @@ def gdtot(update, context):
     try:
         search = update.message.text.split(' ', 1)[1]
         search_list = search.split(' ')
-        for glink in search_list:
-            LOGGER.info(f"Extracting gdtot link: {glink}")
+        for alink in search_list:
+            LOGGER.info(f"Extracting appdrive link: {alink}")
             button = None
-            reply = sendMessage('Getting Your GDTOT File Wait....', context.bot, update)
-            file_name, file_url = GDTOT().parse(url=glink)
+            reply = sendMessage('Getting Your APPDRIVE File Wait....', context.bot, update)
+            file_name, file_url = APPDRIVE().parse(url=alink)
             if file_name == 404:
                 sendMessage(file_url, context.bot, update)
                 return
@@ -76,8 +76,9 @@ def gdtot(update, context):
 
 list_handler = CommandHandler(BotCommands.ListCommand, list_drive, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
 gdtot_handler = CommandHandler(BotCommands.GDTOTCommand, gdtot, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
-
+appdrive_handler = CommandHandler(BotCommands.APPDRIVECommand, appdrive, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
 
 
 dispatcher.add_handler(list_handler)
 dispatcher.add_handler(gdtot_handler)
+dispatcher.add_handler(appdrive_handler)
