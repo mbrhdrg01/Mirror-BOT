@@ -62,7 +62,7 @@ class APPDRIVE:
           else:
              try:
                  r1 = rq.get(url, headers=self.h, cookies=self.c).content
-                 p = bt(r1, 'html.parser').find('button', id="down").get('onclick').split("'")[1]
+                 p = bt(r1, 'html.parser').find('button', id="download").get('onclick').split("'")[1]
                  self.r = url
                  r2 = bt(rq.get(p, headers=self.h, cookies=self.c).content, 'html.parser').find('meta').get('content').split('=',1)[1]
                  self.r = p
